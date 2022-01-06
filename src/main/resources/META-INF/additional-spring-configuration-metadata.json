@@ -1,0 +1,7 @@
+{"properties": [
+    {
+        "name": "testdata.idinfo",
+        "type": "java.lang.String",
+        "description": "테스트 사용자 정보"
+    }
+]}
