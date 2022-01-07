@@ -38,8 +38,10 @@ public class MembersConfig {
 
             while ((str = reader.readLine()) != null) {
                 log.info(str);
-                info = str.split("=");
-                memberData.put(info[0], info[1]);
+                if (!"".equals(str.trim())) {
+                    info = str.split("=");
+                    memberData.put(info[0], info[1]);
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
