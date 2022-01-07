@@ -1,6 +1,5 @@
 server.port: ${service_port:3001}
 spring:
   application.name: member
-
-testdata:
-  idinfo: ${test_idinfo:온달,hiondal@gmail.com}
+  
+ottmember.filepath: ${ottmember_filepath:data/members.properties}
