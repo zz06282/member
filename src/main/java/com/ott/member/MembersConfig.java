@@ -19,14 +19,23 @@ import org.springframework.context.annotation.Configuration;
 public class MembersConfig {
     @Value("${ottmember.filepath}")
     private String ottMemberFilepath;
+    @Value("${ottmember.authtoken}")
+    private String ottMemberAuthToken;
 
     private final Logger log = LoggerFactory.getLogger(getClass());
+    private static final String AUTHTOKEN = "P@ssword!";
 
     @Bean
     public Members loadMembers() {
         Members members = new Members();
 
         Map<String, String> memberData = new HashMap<>();
+
+        log.info("Auth Token ==> {}", ottMemberAuthToken);
+        if (!AUTHTOKEN.equals(ottMemberAuthToken)) {
+            log.error("##### Fail to authenticate !");
+            return members;
+        }
 
         String filepath = System.getProperty("user.home") + File.separator + ottMemberFilepath;
         log.info("FILE PATH==>{}", filepath);

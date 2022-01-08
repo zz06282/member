@@ -2,4 +2,7 @@ server.port: ${service_port:3001}
 spring:
   application.name: member
   
-ottmember.filepath: ${ottmember_filepath:data/members.properties}
+ottmember:
+  filepath: ${ottmember_filepath:data/members.properties}
+  authtoken: ${ottmember_authtoken:P@ssword!}
+
