@@ -23,8 +23,8 @@ public class Controller {
         return msg;
     }
 
-    @GetMapping("host")
-    public String getHost() {
-        return "Host=>" + System.getenv("HOSTNAME");
+    @GetMapping("hostname")
+    public String getHostname() {
+        return "Hostname=>" + System.getenv("HOSTNAME");
     }
 }
