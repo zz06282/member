@@ -6,3 +6,6 @@ ottmember:
   filepath: ${ottmember_filepath:data/members.properties}
   authtoken: ${ottmember_authtoken:P@ssword!}
 
+logging.level:
+  root: INFO
+  org.springframework.web: ERROR
