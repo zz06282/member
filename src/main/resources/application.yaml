@@ -1,6 +1,7 @@
 server.port: ${service_port:3001}
 spring:
   application.name: member
+  profiles.active: dev
   
 ottmember:
   filepath: ${ottmember_filepath:data/members.properties}
