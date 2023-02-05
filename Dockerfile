@@ -20,5 +20,4 @@ COPY ./target/${ARTIFACTORY_FILE} ${ARTIFACTORY_HOME}
 # Launch the artifactory as docker user
 ENTRYPOINT [ "sh", "-c" ]
 USER docker
-CMD [ "java -jar ./member.jar" ]
-
+CMD [ "java -Dspring.profiles.active=${PROFILE} -jar ${ARTIFACTORY_FILE}" ]
