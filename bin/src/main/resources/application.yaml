@@ -1,4 +1,0 @@
-server.port: 3001
-spring:
-  application.name: member
-  
