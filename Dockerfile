@@ -10,18 +10,15 @@ ENV ARTIFACTORY_HOME /home/${USERNAME}
 RUN adduser --disabled-password --gecos "" ${USERNAME} && \
   echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
   mkdir -p ${ARTIFACTORY_HOME} && \
-  chown ${USERNAME}:${USERNAME} ${ARTIFACTORY_HOME} && \
-  mkdir ./data
+  chown ${USERNAME}:${USERNAME} ${ARTIFACTORY_HOME}
 
 WORKDIR ${ARTIFACTORY_HOME}
 
 # Copy your jar to the container
 COPY ./target/${ARTIFACTORY_FILE} ${ARTIFACTORY_HOME}
-COPY ./members.properties ./data/members.properties
 
 # Launch the artifactory as docker user
 ENTRYPOINT [ "sh", "-c" ]
 USER docker
-#CMD [ "java -jar ${ARTIFACTORY_FILE} --spring.profiles.active=${PROFILE}" ]
 CMD [ "java -jar ./member.jar" ]
 
